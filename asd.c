@@ -39,3 +39,10 @@ int main() {
 
 	return 0;
 }
+
+double getA(const double x, const double y, const double z) {
+	return pow(sin((x * x + z) * (x * x + z)), 3) - sqrt(x / y);
+}
+double getB(const double x, const double y, const double z) {
+	return (x * x) / z + cos(pow(x + y, 3));
+}
