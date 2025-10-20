@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <locale.h>
 
-enum { WEEK = 1, MONTH = 2 };
+enum { WEEK = 1, MONTH = 2,WEN,THU,FRI, SAT, SUN,AUG,SEP,OCT,NOV,DEC };
 
 /**
  * @brief считывает значение,
@@ -32,6 +33,7 @@ void checkValueM(const double value);
 */
 int main() 
 {
+    setlocale(LC_ALL, "rus");
     printf("Выберите:\n %d - день недели\n %d - месяц\n", WEEK, MONTH);
     const int chs = getValue();
     checkValue(chs);
@@ -43,25 +45,25 @@ int main()
         checkValueW(day);
         switch (day)
         {
-        case 1:
+        case WEEK:
             printf("Понедельник");
             break;
-        case 2:
+        case MONTH:
             printf("Вторник");
             break;
-        case 3:
+        case WEN:
             printf("Среда");
             break;
-        case 4:
+        case THU:
             printf("Четверг");
             break;
-        case 5:
+        case FRI:
             printf("Пятница");
             break;
-        case 6:
+        case SAT:
             printf("Суббота");
             break;
-        case 7:
+        case SUN:
             printf("Воскресенье");
             break;
         }
@@ -72,40 +74,40 @@ int main()
         checkValueM(mth);
         switch (mth)
         {
-        case(1):
+        case WEEK:
             printf("Январь");
             break;
-        case(2):
+        case MONTH:
             printf("Февраль");
             break;
-        case(3):
+        case WEN:
             printf("Март");
             break;
-        case(4):
+        case THU:
             printf("Апрель");
             break;
-        case(5):
+        case FRI:
             printf("Май");
             break;
-        case(6):
+        case SAT:
             printf("Июнь");
             break;
-        case(7):
+        case SUN:
             printf("Июль");
             break;
-        case(8):
+        case AUG:
             printf("Август");
             break;
-        case(9):
+        case SEP:
             printf("Сентябрь");
             break;
-        case(10):
+        case OCT:
             printf("Октябрь");
             break;
-        case(11):
+        case NOV:
             printf("Ноябрь");
             break;
-        case(12):
+        case DEC:
             printf("Декабрь");
             break;
         }
