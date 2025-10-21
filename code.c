@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <locale.h>
 
-enum { WEEK = 1, MONTH = 2,WEN,THU,FRI, SAT, SUN,AUG,SEP,OCT,NOV,DEC };
+enum { WEEK = 1, MONTH = 2 };
+enum { MON = 1, TUE = 2, WEN, THU, FRI, SAT, SUN };
+enum { JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC };
 
 /**
  * @brief считывает значение,
