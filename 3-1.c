@@ -63,7 +63,7 @@ double getY(const double x) {
 }
 
 bool defineOOF(const double x) {
-	return cos(fabs(x)) != 0;
+	return fabs(cos(fabs(x))) > DBL_EPSILON;
 }
 
 double getValue()
