@@ -11,10 +11,15 @@ double getValue();
 * @param x введенная переменная
 */
 double getY(const double x);
+/**
+* @brief точка входа в программу
+* @return возврат 0 в случае если программа работает правиьлно
+*/
 int main() {
 	printf("Введите x:\n");
 	const double x = getValue();
     printf("y=%.6f", getY(x));
+	return 0;
 }
 getY(const double x) {
     const double a = 20.3;
