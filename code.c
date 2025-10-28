@@ -47,10 +47,10 @@ int main()
         checkValueW(day);
         switch (day)
         {
-        case WEEK:
+        case MON:
             printf("Понедельник");
             break;
-        case MONTH:
+        case TUE:
             printf("Вторник");
             break;
         case WEN:
@@ -76,25 +76,25 @@ int main()
         checkValueM(mth);
         switch (mth)
         {
-        case WEEK:
+        case JAN:
             printf("Январь");
             break;
-        case MONTH:
+        case FEB:
             printf("Февраль");
             break;
-        case WEN:
+        case MAR:
             printf("Март");
             break;
-        case THU:
+        case APR:
             printf("Апрель");
             break;
-        case FRI:
+        case MAY:
             printf("Май");
             break;
-        case SAT:
+        case JUN:
             printf("Июнь");
             break;
-        case SUN:
+        case JUL:
             printf("Июль");
             break;
         case AUG:
