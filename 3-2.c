@@ -12,7 +12,7 @@ int getInt();
 * @brief проверка знака введенного числа
 * @param value введенное число
 */
-void checkPositive(const int value);
+void checkPositive(const double value);
 /**
 * @brief сумма первых n чисел последовательности
 * @param n количество чисел последовательности начиная с 1
