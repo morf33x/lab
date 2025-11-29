@@ -9,10 +9,10 @@ double getDouble();
 */
 int getInt();
 /**
-* @brief считает факториал
-* @return число от которого нужно найти факториал
+* @brief проверка знака введенного числа
+* @param value введенное число
 */
-int fact(const int k);
+void checkPositive(const int value);
 /**
 * @brief сумма первых n чисел последовательности
 * @param n количество чисел последовательности начиная с 1
@@ -29,8 +29,12 @@ double getSumE(const double e,const int n);
 * @return возврат 0 если программа закончилась успешно
 */
 int main() {
+	printf("Введите количество членов последовательности ");
 	const int n = getInt();
+	checkPositive(n)
+	printf("Введите точность с котой будет рассчитана сумма членов последовательности ");
 	const double e = getDouble();
+	checkPositive(n)
 	printf("%f\n%f", getSumN(n),getSumE(e,n));
 	return 0;
 }
@@ -43,20 +47,27 @@ double getDouble() {
 	}
 	return value;
 }
-
+void checkPositive(const double value) {
+	if (!value > 0) {
+		printf("Error");
+		exit(1);
+	}
+}
 double getSumN(const int n) {
-	double current = 0;
+	double current = 1;
+	double n_current = 1;
 	for (int k = 0; k < n; k++) {
-		current += pow(-1, k) / fact(2 * k);
+		n_current *= -1.0 / ((2 * k + 1) * (2 * k + 2));
+		current += n_current;
 	}
 	return current;
 }
 
 double getSumE(const double e,const int n) {
-	double current = 0;
-	double n_current = 0;
+	double current = 1;
+	double n_current = 1;
 	for (int k = 0; k < n; k++) {
-		n_current= pow(-1, k) / fact(2 * k);
+		n_current*= -1.0 / ((2 * k + 1) * (2 * k + 2));
 		if (fabs(n_current) > e)current += n_current;
 	}
 	return current;
@@ -69,9 +80,4 @@ int getInt() {
 		exit(1);
 	}
 	return value;
-}
-
-int fact(const int k) {
-	if (k > 1)return k * fact(k - 1);
-	else return 1;
 }
