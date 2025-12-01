@@ -77,7 +77,7 @@ int main()
             break;
         default:
             printf("Значение должно быть номером дня недели\n");
-            abort();
+            exit(1)
         }
         break;
     case MONTH:
@@ -128,7 +128,7 @@ int main()
         }
     default:
         printf("Неправильный выбор\n");
-        abort();
+        exit(1);
     }
 }
 
