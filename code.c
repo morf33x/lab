@@ -123,7 +123,7 @@ int main()
             break;
         default:
             printf("Значение должно быть номером месяца\n");
-            abort();
+            exit(1)
             break;
         }
     default:
