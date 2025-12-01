@@ -31,10 +31,10 @@ double getSumE(const double e,const int n);
 int main() {
 	printf("Введите количество членов последовательности ");
 	const int n = getInt();
-	checkPositive(n)
+	checkPositive(n);
 	printf("Введите точность с котой будет рассчитана сумма членов последовательности ");
 	const double e = getDouble();
-	checkPositive(n)
+	checkPositive(n);
 	printf("%f\n%f", getSumN(n),getSumE(e,n));
 	return 0;
 }
