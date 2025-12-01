@@ -1,8 +1,34 @@
 #include <stdio.h>
 #include <locale.h>
-
+/**
+* @param WEEK выбор дня недели
+* @param MONTH выбор месяца
+*/
 enum { WEEK = 1, MONTH = 2 };
+/**
+* @param MON понедельник
+* @param TUE вторник
+* @param WEN среда
+* @param THU четверг
+* @param FRI пятница
+* @param SAT суббота
+* @param SUN воскресенье
+*/
 enum { MON = 1, TUE = 2, WEN, THU, FRI, SAT, SUN };
+/**
+* @param JAN январь
+* @param FEB февраль
+* @param MAR март
+* @param APR апрель
+* @param MAY май
+* @param JUN июнь
+* @param JUL июль
+* @param AUG август
+* @param SEP сентябрь
+* @param OCT октябрь
+* @param NOV ноябрь
+* @param DEC декабрь
+*/
 enum { JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC };
 
 /**
