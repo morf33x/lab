@@ -36,10 +36,8 @@ int main() {
 	setlocale(LC_ALL, "rus");
 	printf("Введите левую границу интервала ");
 	const double start = getDouble();
-	checkPositive(start);
 	printf("Введите правую границу интервала ");
 	const double end = getDouble();
-	checkPositive(end);
 	checkInterval(start, end);
 	printf("Введите шаг ");
 	const double h = getDouble();
@@ -48,10 +46,10 @@ int main() {
 	const double e = getDouble();
 	checkPositive(e);
 	printf("x        y        S\n");
-	for (double x = start; x <= end; x += h) {
+	for (double x = start; !(x > end); x += h) {
 		printf("%f %f %f\n", x, getY(x), getSum(x, e));
 	}
-	getSum(1.0,e);
+	getSum(1.0, e);
 	return 0;
 }
 
@@ -78,7 +76,7 @@ void checkInterval(const double start, const double end) {
 		abort();
 	}
 }
-double getSum(const double x,const double e) {
+double getSum(const double x, const double e) {
 	double current = 1;
 	double n_current = 1;
 	for (int k = 0; fabs(n_current) > e; k++) {
