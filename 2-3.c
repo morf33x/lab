@@ -38,7 +38,7 @@ int main(void) {
         break;
     default:
         printf("Неправильный выбор");
-        abort();
+        exit(1);
     }
 
     return 0;
