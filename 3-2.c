@@ -20,10 +20,9 @@ void checkPositive(const double value);
 double getSumN(const int n);
 /**
 * @brief сумма первых n чисел последовательности больших по модулю e
-* @param n количество чисел последовательности начиная с 1
 * @brief e 
 */
-double getSumE(const double e,const int n);
+double getSumE(const double e);
 /**
 * @brief точка входа в программу
 * @return возврат 0 если программа закончилась успешно
@@ -35,7 +34,7 @@ int main() {
 	printf("Введите точность с котой будет рассчитана сумма членов последовательности ");
 	const double e = getDouble();
 	checkPositive(n);
-	printf("%f\n%f", getSumN(n),getSumE(e,n));
+	printf("%f\n%f", getSumN(n),getSumE(e));
 	return 0;
 }
 
@@ -63,12 +62,12 @@ double getSumN(const int n) {
 	return current;
 }
 
-double getSumE(const double e,const int n) {
-	double current = 1;
+double getSumE(const double e) {
+	double current = 0;
 	double n_current = 1;
-	for (int k = 0; k < n; k++) {
+	for (int k = 0; fabs(n_current) > e; k++) {
+		current += n_current;
 		n_current*= -1.0 / ((2 * k + 1) * (2 * k + 2));
-		if (fabs(n_current) > e)current += n_current;
 	}
 	return current;
 }
