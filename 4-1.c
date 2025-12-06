@@ -66,6 +66,10 @@ void sortArry(int* arr, const size_t size);
 * @param MMANUAL заполнение массива вручную
 */
 enum { RANDOM = 1, MANUAL };
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно
+ */
 int main() {
 	setlocale(LC_ALL, "rus");
 	printf("Выберите тип заполнения массива:\n%d - случайное\n%d - вручную\n", RANDOM, MANUAL);
