@@ -90,6 +90,8 @@ int main() {
 	changeMinToAvg(arr, size);
 	printindex(arr, size);
 	PlusMinus(arr, size);
+	free(arr);
+	return 0;
 }
 void sortArry(int* arr, const size_t size)
 {
