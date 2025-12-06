@@ -122,17 +122,13 @@ void printindex(int* arr, const size_t size) {
 	printf("\n");
 }
 void PlusMinus(int* arr, const size_t size) {
-	int flag = 0;
 	for (size_t i = 0; i < size - 1; i++) {
 		if (arr[i] > 0 && arr[i + 1] > 0 || arr[i] == 0 && arr[i + 1] == 0 || arr[i] < 0 && arr[i + 1] < 0) {
 			printf("В массиве есть пары рядомстоящих чисел с одинаковым знаком");
 			break;
 		}
-		else {
-			printf("В массиве нет пар рядомстоящих чисел с одинаковым знаком");
-			break;
-		}
 	}
+	printf("В массиве нет пар рядомстоящих чисел с одинаковым знаком");
 }
 void changeMinToAvg(int* arr, const size_t size) {
 	int* copy1 = copyArray(arr, size);
