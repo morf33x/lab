@@ -125,7 +125,7 @@ void PlusMinus(int* arr, const size_t size) {
 	for (size_t i = 0; i < size - 1; i++) {
 		if (arr[i] > 0 && arr[i + 1] > 0 || arr[i] == 0 && arr[i + 1] == 0 || arr[i] < 0 && arr[i + 1] < 0) {
 			printf("В массиве есть пары рядомстоящих чисел с одинаковым знаком");
-			break;
+			return;
 		}
 	}
 	printf("В массиве нет пар рядомстоящих чисел с одинаковым знаком");
