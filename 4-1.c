@@ -75,12 +75,12 @@ int main() {
 	printf("Выберите тип заполнения массива:\n%d - случайное\n%d - вручную\n", RANDOM, MANUAL);
 	const int choise = getInt();
 	size_t size = getSize("Введите размер массива\n");
-	int* arr = malloc(size* sizeof(int));
+	int* arr = malloc(size * sizeof(int));
 	if (arr == NULL) {
 		printf("Error");
 		exit(1);
 	}
-	switch (choise) { 
+	switch (choise) {
 	case RANDOM:
 		fillRandom(arr, size);
 		break;
@@ -91,10 +91,12 @@ int main() {
 		printf("Error");
 		exit(1);
 	}
-	changeMinToAvg(arr, size);
-	printindex(arr, size);
-	PlusMinus(arr, size);
+	int* copy = copyArray(arr, size);
+	changeMinToAvg(copy, size);
+	printindex(copy, size);
+	PlusMinus(copy, size);
 	free(arr);
+	free(copy);
 	return 0;
 }
 void sortArry(int* arr, const size_t size)
@@ -116,7 +118,7 @@ void printindex(int* arr, const size_t size) {
 	printf("Индексы элементов значения у которых больше предыдущих: ");
 	for (size_t i = 1; i < size; i++) {
 		if (arr[i] > arr[i - 1]) {
-			printf("%d ",i);
+			printf("%d ", i);
 		}
 	}
 	printf("\n");
@@ -132,23 +134,21 @@ void PlusMinus(int* arr, const size_t size) {
 }
 void changeMinToAvg(int* arr, const size_t size) {
 	int* copy1 = copyArray(arr, size);
-	int* copy2 = copyArray(arr, size);
 	sortArry(copy1, size);
 	const int Min = copy1[0];
 	const int avg = copy1[size / 2];
 	for (size_t i = 0; i < size; i++) {
-		if (copy2[i] == Min) {
-			copy2[i] = avg;
+		if (arr[i] == Min) {
+			arr[i] = avg;
 			break;
 		}
 	}
 	printf("Массив с замененым минимальным элементом на средний\n");
-	printArray(copy2, size);
+	printArray(arr, size);
 	free(copy1);
-	free(copy2);
 }
 size_t getSize(char* message) {
-	printf("%s",message);
+	printf("%s", message);
 	int size = 0;
 	scanf_s("%d", &size);
 	if (size <= 0) {
