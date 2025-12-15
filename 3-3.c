@@ -14,8 +14,9 @@ void checkPositive(const double value);
 * @brief сумма первых n чисел последовательности больших по модулю e
 * @param n количество чисел последовательности начиная с 1
 * @brief e точность с которой считают сумму
+* @param y точное значение функции
 */
-double getSum(const double x, const double e);
+double getSum(const double x, const double e, const double y);
 /**
 * @brief проверяет что начальное значение меньше конечного
 * @param start начальное значение
@@ -47,9 +48,8 @@ int main() {
 	checkPositive(e);
 	printf("x        y        S\n");
 	for (double x = start; !(x > end); x += h) {
-		printf("%f %f %f\n", x, getY(x), getSum(x, e));
+		printf("%f %f %f\n", x, getY(x), getSum(x, e, getY(x)));
 	}
-	getSum(1.0, e);
 	return 0;
 }
 
@@ -76,10 +76,10 @@ void checkInterval(const double start, const double end) {
 		abort();
 	}
 }
-double getSum(const double x, const double e) {
+double getSum(const double x, const double e,const double y) {
 	double current = 1;
 	double n_current = 1;
-	for (int k = 0; fabs(n_current) > e; k++) {
+	for (int k = 0;y - current > e; k++) {
 		n_current *= (x * x) / ((2.0 * k + 1.0) * (2.0 * k + 2.0));
 		current += n_current;
 	}
