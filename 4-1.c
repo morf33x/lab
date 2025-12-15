@@ -11,7 +11,7 @@ int getInt();
 * @param сообщение о необходимости размера массива
 * @return размер массива
 */
-size_t getSize(char* message);
+size_t getSize(const char* message);
 /**
  * @brief cчитывает значения элементов массива
  * @param arr массив
@@ -36,19 +36,19 @@ int* copyArray(const int* arr, const size_t size);
  * @param arr массив
  * @param size размер массива
  */
-void printArray(int* arr, const size_t size);
+void printArray(const int* arr, const size_t size);
 /**
 * @brief выводит есть ли в массиве пары чисел с одни знаком
 * @param arr массив
 * @param size размер массива
 */
-void PlusMinus(int* arr, const size_t size);
+void PlusMinus(const int* arr, const size_t size);
 /**
 * @brief выводит индексы элементов массива которые больше предыдущих
 * @param arr массив
 * @param size размер массива
 */
-void printindex(int* arr, const size_t size);
+void printindex(const int* arr, const size_t size);
 /**
 * @brief меняет средний элемент массива на минимальный
 * @param arr массив
