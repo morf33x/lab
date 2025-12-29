@@ -62,6 +62,12 @@ void changeMinToAvg(int* arr, const size_t size);
 */
 void sortArry(int* arr, const size_t size);
 /**
+* @brief создает пустой массив ненулевого размера
+* @param size размер массива
+* @return созданный массив
+*/
+int* makeArr(const size_t size);
+/**
 * @param RANDOM случайное запрлнение массива
 * @param MMANUAL заполнение массива вручную
 */
@@ -75,11 +81,7 @@ int main() {
 	printf("Выберите тип заполнения массива:\n%d - случайное\n%d - вручную\n", RANDOM, MANUAL);
 	const int choise = getInt();
 	size_t size = getSize("Введите размер массива\n");
-	int* arr = malloc(size * sizeof(int));
-	if (arr == NULL) {
-		printf("Error");
-		exit(1);
-	}
+	int* arr = makeArr(size);
 	switch (choise) {
 	case RANDOM:
 		fillRandom(arr, size);
@@ -99,8 +101,21 @@ int main() {
 	free(copy);
 	return 0;
 }
+int* makeArr(const size_t size) {
+	int* arr = malloc(size * sizeof(int));
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
+	return arr;
+}
+
 void sortArry(int* arr, const size_t size)
 {
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
 	for (size_t i = 0; i < size; i++)
 	{
 		for (size_t j = i; j < size; j++)
@@ -115,6 +130,10 @@ void sortArry(int* arr, const size_t size)
 	}
 }
 void printindex(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
 	printf("Индексы элементов значения у которых больше предыдущих: ");
 	for (size_t i = 1; i < size; i++) {
 		if (arr[i] > arr[i - 1]) {
@@ -124,6 +143,10 @@ void printindex(int* arr, const size_t size) {
 	printf("\n");
 }
 void PlusMinus(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
 	for (size_t i = 0; i < size - 1; i++) {
 		if (arr[i] > 0 && arr[i + 1] > 0 || arr[i] == 0 && arr[i + 1] == 0 || arr[i] < 0 && arr[i + 1] < 0) {
 			printf("В массиве есть пары рядомстоящих чисел с одинаковым знаком");
@@ -177,15 +200,23 @@ int getInt() {
 }
 int* copyArray(const int* arr, const size_t size)
 {
-	int* copyArr = malloc(sizeof(int) * size);
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
+	int* copyArr = makeArr(size);
 	for (size_t i = 0; i < size; i++)
 	{
 		copyArr[i] = arr[i];
 	}
 	return copyArr;
 }
-void printArray(int* arr, const size_t size)
+void printArray(const int* arr, const size_t size)
 {
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
 	for (size_t i = 0; i < size; i++)
 	{
 		printf("%d ", arr[i]);
@@ -193,6 +224,10 @@ void printArray(int* arr, const size_t size)
 	printf("\n ");
 }
 void fillArray(int* arr, size_t size) {
+	if (arr == NULL) {
+		printf("Error");
+		exit(1);
+	}
 	for (size_t i = 0; i < size; i++) {
 		printf("Введите %d-й эелемент массива", i);
 		arr[i] = getInt();
