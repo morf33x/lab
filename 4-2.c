@@ -116,6 +116,10 @@ int main() {
 	return 0;
 }
 void masCtoA(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	int* copy = malloc(sizeof(int) * size);
 	for (size_t i = 0; i < size; i++) {
 		if (i % 2 == 0) {
@@ -130,6 +134,10 @@ void masCtoA(int* arr, const size_t size) {
 	free(copy);
 }
 void changeMinLast(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	int* copy = copyArray(arr, size);
 	int min = 1e9;
 	size_t id = 0;
@@ -145,6 +153,10 @@ void changeMinLast(int* arr, const size_t size) {
 	free(copy);
 }
 void deleteElement(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	int* copy = copyArray(arr, size);
 	int del = 0;
 	for (size_t i = 0; i < size; i++) {
@@ -168,6 +180,10 @@ void deleteElement(int* arr, const size_t size) {
 }
 void sortArry(int* arr, const size_t size)
 {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	for (size_t i = 0; i < size; i++)
 	{
 		for (size_t j = i; j < size; j++)
@@ -182,6 +198,10 @@ void sortArry(int* arr, const size_t size)
 	}
 }
 void printindex(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	printf("Индексы элементов значения у которых больше предыдущих: ");
 	for (size_t i = 1; i < size; i++) {
 		if (arr[i] > arr[i - 1]) {
@@ -191,6 +211,10 @@ void printindex(int* arr, const size_t size) {
 	printf("\n");
 }
 void PlusMinus(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	for (size_t i = 0; i < size - 1; i++) {
 		if (arr[i] > 0 && arr[i + 1] > 0 || arr[i] == 0 && arr[i + 1] == 0 || arr[i] < 0 && arr[i + 1] < 0) {
 			printf("В массиве есть пары рядомстоящих чисел с одинаковым знаком");
@@ -200,6 +224,10 @@ void PlusMinus(int* arr, const size_t size) {
 	printf("В массиве нет пар рядомстоящих чисел с одинаковым знаком");
 }
 void changeMinToAvg(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	int* copy1 = copyArray(arr, size);
 	int* copy2 = copyArray(arr, size);
 	sortArry(copy1, size);
@@ -217,6 +245,10 @@ void changeMinToAvg(int* arr, const size_t size) {
 	free(copy2);
 }
 size_t getSize(char* message) {
+	if (message == NULL) {
+		printf("error");
+		abort();
+	}
 	printf("%s", message);
 	int size = 0;
 	scanf_s("%d", &size);
@@ -227,6 +259,10 @@ size_t getSize(char* message) {
 	return (size_t)size;
 }
 void fillRandom(int* arr, const size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	printf("Ведите начало и конец диапозона\n");
 	const int start = getInt();
 	const int end = getInt();
@@ -246,6 +282,10 @@ int getInt() {
 }
 int* copyArray(const int* arr, const size_t size)
 {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	int* copyArr = malloc(sizeof(int) * size);
 	for (size_t i = 0; i < size; i++)
 	{
@@ -255,6 +295,10 @@ int* copyArray(const int* arr, const size_t size)
 }
 void printArray(int* arr, const size_t size)
 {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	for (size_t i = 0; i < size; i++)
 	{
 		printf("%d ", arr[i]);
@@ -262,6 +306,10 @@ void printArray(int* arr, const size_t size)
 	printf("\n ");
 }
 void fillArray(int* arr, size_t size) {
+	if (arr == NULL) {
+		printf("error");
+		abort();
+	}
 	for (size_t i = 0; i < size; i++) {
 		printf("Введите %d-й эелемент массива", i);
 		arr[i] = getInt();
