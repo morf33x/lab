@@ -1,7 +1,10 @@
 #include <iostream>
 #include "point.h"
 #include "rect.h"
-
+/**
+* @brief точка входа в программу
+* @return 0, если программа выполнена правильно
+*/
 int main() {
 	setlocale(LC_ALL, "rus");
 	point a(0, 0);
@@ -9,7 +12,8 @@ int main() {
 	point c(3, 0);
 	
 	rect rectangle(a, b, c);
-	std::cout << "������ ��������� ����������:" << rectangle.getRad() << std::endl;
-	std::cout << "������� ��������� ����������:" << rectangle.getSq() << std::endl;
+	std::cout << "Ðàäèóñ îïèñàííîé îêðóæíîñòè:" << rectangle.getRad() << std::endl;
+	std::cout << "Ïëîùàäü îïèñàííîé îêðóæíîñòè:" << rectangle.getSq() << std::endl;
 	return 0;
+
 }
