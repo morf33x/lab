@@ -12,8 +12,8 @@ int main() {
 	point c(3, 0);
 	
 	rect rectangle(a, b, c);
-	std::cout << "Ðàäèóñ îïèñàííîé îêðóæíîñòè:" << rectangle.getRad() << std::endl;
-	std::cout << "Ïëîùàäü îïèñàííîé îêðóæíîñòè:" << rectangle.getSq() << std::endl;
+	std::cout << "Радиус описанной окружности:" << rectangle.getRad() << std::endl;
+	std::cout << "Площадь описанной окружности:" << rectangle.getSq() << std::endl;
 	return 0;
 
 }
