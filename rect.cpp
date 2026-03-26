@@ -5,14 +5,14 @@
 #include "point.h"
 rect::rect(const point p1, const point p2, const point p3) {
 	if (p1 == p2 || p2 == p3 || p1 == p3) {
-		std::cout << "òî÷êè ñîâïàäàþò";
-		abort();
+		std::cout << "Ã²Ã®Ã·ÃªÃ¨ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã²";
+		return 1;
 	}
 	if ((p1.getX() - p2.getX()) * (p3.getX() - p2.getX()) + (p1.getY() - p2.getY()) * (p3.getY() - p2.getY()) != 0 &&
 		(p1.getX() - p3.getX()) * (p2.getX() - p3.getX()) + (p1.getY() - p3.getY()) * (p2.getY() - p3.getY()) != 0 &&
         (p2.getX() - p1.getX()) * (p3.getX() - p1.getX()) + (p2.getY() - p1.getY()) * (p3.getY() - p1.getY())){
-		std::cout << "ýòî íå òî÷êè ïðÿìîóãîëüíèêà" << std::endl;
-		abort();
+		std::cout << "Ñ‚Ð¾Ñ‡ÐºÐ¸ Ð½Ðµ ÑÐ²Ð»ÑÑŽÑ‚ÑÑ Ð²ÐµÑ€ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°" << std::endl;
+		return 1;
 	}
 	a = point(p1.getX(), p1.getY());
 	b = point(p2.getX(), p2.getY());
