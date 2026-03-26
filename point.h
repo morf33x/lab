@@ -20,11 +20,11 @@ public:
      /**
     * @brief оператор проверяет совпадают ли точки
     */
-	bool operator==(point p) const;
+	bool operator==(const point p) const;
      /**
     * @brief оператор проверяет отличаются ли точки
     */
-	bool operator!=(point p) const;
+	bool operator!=(const point p) const;
   /**
     * @brief получение координаты x
     * @return x
