@@ -10,7 +10,7 @@ double point::getY()const {
 	return y;
 }
 bool point::operator==(const point p) const {
-	return (!(x - p.x < 0 || x - p.x>0) && !(y - p.y < 0 || y - p.y>0));
+	return (!(abs(x - p.x) < DBL_EPSILON) && !(abs(y - p.y) < DBL_EPSILON));
 }
 bool point::operator!=(const point p) const {
 	return !(*this == p);
