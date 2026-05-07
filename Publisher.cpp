@@ -14,9 +14,7 @@ std::ostream& operator<<(std::ostream& os, const Publisher& pub)
 
 std::istream& operator>>(std::istream& is, Publisher& pub)
 {
-    std::cout << "Введите город издания: ";
     is >> pub.city;
-    std::cout << "Введите название издательства: ";
     is >> pub.name;
     return is;
 }
