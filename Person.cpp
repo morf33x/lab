@@ -23,7 +23,6 @@ std::ostream& operator<<(std::ostream& os, const Person& person)
 
 std::istream& operator>>(std::istream& is, Person& person)
 {
-    std::cout << "Введите Фамилию, Имя и Отчество: ";
     is >> person.lastName >> person.firstName >> person.patronymic;
     return is;
 }
