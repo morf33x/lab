@@ -27,8 +27,8 @@ public:
      * @param publisher - Объект издательства
      * @param editor - Объект персоны (редактор)
      */
-    Book(const std::vector<Person>& authors, const std::string& title, int year,
-        const Publisher& publisher, const Person& editor);
+    Book(const std::vector& authors, const std::string& title, const int year,
+    const Publisher& publisher, const Person& editor);
 
     /**
      * @brief Формирует строку по ГОСТу
