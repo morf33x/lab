@@ -29,7 +29,7 @@ public:
      * @param title - Название публикации
      * @param year - Год выпуска
      */
-    Publication(const std::vector<Person>& authors, const std::string& title, int year);
+    Publication(const std::vector<Person>& authors, const std::string& title, const int year);
 
     /**
      * @brief Виртуальный деструктор
