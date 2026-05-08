@@ -11,24 +11,52 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace PublicationUnitTests
 {
     TEST_CLASS(PersonTest)
+{
+public:
+    TEST_METHOD(BasicAuthor)
     {
-    public:
-        TEST_METHOD(BasicAuthor)
-        {
-            Person author("Иван", "Иванов", "Иванович");
-            std::ostringstream oss;
-            oss << author;
-            Assert::AreEqual("Иванов И.И.", oss.str().c_str());
-        }
+        Person author("Иван", "Иванов", "Иванович");
+        std::ostringstream oss;
+        oss << author;
+        Assert::AreEqual("Иванов И.И.", oss.str().c_str());
+    }
 
-        TEST_METHOD(FullEditor)
-        {
-            Person editor("Петр", "Петров", "Сергеевич", "Д-р", "Ph.D.");
-            std::ostringstream oss;
-            oss << editor;
-            Assert::AreEqual("Д-р Петров П.С. Ph.D.", oss.str().c_str());
-        }
+    TEST_METHOD(FullEditor)
+    {
+        Person editor("Петр", "Петров", "Сергеевич", "Д-р", "Ph.D.");
+        std::ostringstream oss;
+        oss << editor;
+        Assert::AreEqual("Д-р Петров П.С. Ph.D.", oss.str().c_str());
+    }
 
+    TEST_METHOD(NoPatronymic)
+    {
+        Person foreignAuthor("Джон", "Смит");
+        std::ostringstream oss;
+        oss << foreignAuthor;
+        Assert::AreEqual("Смит Д.", oss.str().c_str());
+    }
+
+    TEST_METHOD(UniqueIdTest)
+    {
+        Person p1("Алексей", "Смирнов");
+        Person p2("Борис", "Николаев");
+        Person p3("Виктор", "Васильев");
+
+        Assert::AreEqual(p1.getId() + 1, p2.getId());
+        Assert::AreEqual(p2.getId() + 1, p3.getId());
+        Assert::AreNotEqual(p1.getId(), p2.getId());
+    }
+
+    TEST_METHOD(SameNameUniqueId)
+    {
+        Person clone1("Александр", "Пушкин", "Сергеевич");
+        Person clone2("Александр", "Пушкин", "Сергеевич");
+
+        Assert::AreNotEqual(clone1.getId(), clone2.getId());
+        Assert::AreEqual(clone1.getId() + 1, clone2.getId());
+    }
+};
         TEST_METHOD(NoPatronymic)
         {
             Person foreignAuthor("Джон", "Смит");
