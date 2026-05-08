@@ -2,7 +2,6 @@
 #include <sstream>
 #include <string>
 
-// Замените "LabWork" на имя вашей папки с основным проектом, если нужно
 #include "../Project13/Person.h"
 #include "../Project13/Publisher.h"
 #include "../Project13/Book.h"
@@ -14,7 +13,7 @@ namespace PublicationUnitTests
     TEST_CLASS(PersonTest)
     {
     public:
-        TEST_METHOD(BasicAuthor) // Обычный автор
+        TEST_METHOD(BasicAuthor)
         {
             Person author("Иван", "Иванов", "Иванович");
             std::ostringstream oss;
@@ -22,7 +21,7 @@ namespace PublicationUnitTests
             Assert::AreEqual("Иванов И.И.", oss.str().c_str());
         }
 
-        TEST_METHOD(FullEditor) // Редактор с префиксом и постфиксом
+        TEST_METHOD(FullEditor)
         {
             Person editor("Петр", "Петров", "Сергеевич", "Д-р", "Ph.D.");
             std::ostringstream oss;
@@ -30,7 +29,7 @@ namespace PublicationUnitTests
             Assert::AreEqual("Д-р Петров П.С. Ph.D.", oss.str().c_str());
         }
 
-        TEST_METHOD(NoPatronymic) // Автор без отчества
+        TEST_METHOD(NoPatronymic)
         {
             Person foreignAuthor("Джон", "Смит");
             std::ostringstream oss;
@@ -42,7 +41,7 @@ namespace PublicationUnitTests
     TEST_CLASS(PublisherTest)
     {
     public:
-        TEST_METHOD(Normal) // Обычное издательство
+        TEST_METHOD(Normal)
         {
             Publisher pub("Просвещение", "Санкт-Петербург");
             std::ostringstream oss;
@@ -50,7 +49,7 @@ namespace PublicationUnitTests
             Assert::AreEqual("Санкт-Петербург : Просвещение", oss.str().c_str());
         }
 
-        TEST_METHOD(EmptyCity) // Без города (должно быть "Б. м.")
+        TEST_METHOD(EmptyCity)
         {
             Publisher pub("Иностранка", "");
             std::ostringstream oss;
@@ -62,8 +61,7 @@ namespace PublicationUnitTests
     TEST_CLASS(BookTest)
     {
     public:
-        TEST_METHOD(OneAuthor) // Книга с одним автором
-        {
+        TEST_METHOD(OneAuthor)
             Person author("Александр", "Пушкин", "Сергеевич");
             Person editor("Михаил", "Лермонтов", "Юрьевич");
             Publisher pub("Эксмо", "Москва");
@@ -74,7 +72,7 @@ namespace PublicationUnitTests
             Assert::AreEqual(expected.c_str(), book.ToString().c_str());
         }
 
-        TEST_METHOD(ManyAuthors) // Книга с несколькими авторами
+        TEST_METHOD(ManyAuthors)
         {
             Person author1("Илья", "Ильф", "Арнольдович");
             Person author2("Евгений", "Петров", "Петрович");
@@ -88,7 +86,7 @@ namespace PublicationUnitTests
             Assert::AreEqual(expected.c_str(), book.ToString().c_str());
         }
 
-        TEST_METHOD(OutputOperator) // Тест оператора <<
+        TEST_METHOD(OutputOperator)
         {
             Person author("Стивен", "Кинг");
             Person editor("Джон", "Доу");
