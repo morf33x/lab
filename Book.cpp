@@ -1,8 +1,8 @@
 ﻿#include "Book.h"
 #include <sstream>
 
-Book::Book(const std::vector<Person>& authors, const std::string& title, int year,
-    const Publisher& publisher, const Person& editor)
+Book(const std::vector& authors, const std::string& title, const int year,
+    const Publisher& publisher, const Person& editor);
     : Publication(authors, title, year), publisher(publisher), editor(editor) {
 }
 
