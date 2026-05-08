@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -8,15 +8,19 @@
 class Person
 {
 private:
+    /** @brief Статический счетчик для генерации уникальных ID */
+    static int counter;
+    /** @brief Уникальный идентификатор конкретной персоны */
+    int id;
     /** @brief Имя */
     std::string firstName;
     /** @brief Фамилия */
     std::string lastName;
     /** @brief Отчество */
     std::string patronymic;
-    /** @brief Префикс */
+    /** @brief Префикс (например, "д-р") */
     std::string prefix;
-    /** @brief Постфикс */
+    /** @brief Постфикс (например, "Ph.D.") */
     std::string postfix;
 
 public:
@@ -24,6 +28,12 @@ public:
      * @brief Конструктор по умолчанию
      */
     Person();
+
+    /**
+     * @brief Получить уникальный ID персоны
+     * @return Уникальный целочисленный идентификатор
+     */
+    int getId() const;
 
     /**
      * @brief Конструктор с параметрами
