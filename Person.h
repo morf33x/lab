@@ -14,9 +14,9 @@ private:
     std::string lastName;
     /** @brief Отчество */
     std::string patronymic;
-    /** @brief Префикс (например, "д-р") */
+    /** @brief Префикс */
     std::string prefix;
-    /** @brief Постфикс (например, "Ph.D.") */
+    /** @brief Постфикс */
     std::string postfix;
 
 public:
