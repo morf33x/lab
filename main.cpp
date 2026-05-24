@@ -3,40 +3,40 @@
 #include "CircularList.h"
 
 /**
- * @brief Точка входа в демонстрационную программу
- * @return 0 при успешном выполнении, 1 при ошибке
+ * @brief РўРѕС‡РєР° РІС…РѕРґР° РІ РґРµРјРѕРЅСЃС‚СЂР°С†РёРѕРЅРЅСѓСЋ РїСЂРѕРіСЂР°РјРјСѓ
+ * @return 0 РїСЂРё СѓСЃРїРµС€РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё, 1 РїСЂРё РѕС€РёР±РєРµ
  */
 int main() {
     system("chcp 1251");
 
     try {
-        std::cout << "--- Демонстрация работы циклического односвязного списка ---" << std::endl;
+        std::cout << "--- Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЂР°Р±РѕС‚С‹ С†РёРєР»РёС‡РµСЃРєРѕРіРѕ РѕРґРЅРѕСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР° ---" << std::endl;
 
 
         CircularList list{ 1, 2, 3 };
-        std::cout << "Исходный список: " << list.asString() << std::endl;
+        std::cout << "РСЃС…РѕРґРЅС‹Р№ СЃРїРёСЃРѕРє: " << list.asString() << std::endl;
 
         list.append(4);
-        std::cout << "После добавления 4 в конец: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ 4 РІ РєРѕРЅРµС†: " << list.asString() << std::endl;
 
         list.insert(0, 99);
-        std::cout << "После вставки 99 в начало: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ РІСЃС‚Р°РІРєРё 99 РІ РЅР°С‡Р°Р»Рѕ: " << list.asString() << std::endl;
 
         list.eraseValue(2);
-        std::cout << "После удаления элемента 2: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° 2: " << list.asString() << std::endl;
 
         list.replace(3, 30);
-        std::cout << "После замены 3 на 30: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ Р·Р°РјРµРЅС‹ 3 РЅР° 30: " << list.asString() << std::endl;
 
         list <<= 2;
-        std::cout << "После циклического сдвига влево на 2: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ С†РёРєР»РёС‡РµСЃРєРѕРіРѕ СЃРґРІРёРіР° РІР»РµРІРѕ РЅР° 2: " << list.asString() << std::endl;
 
         list.clearAll();
-        std::cout << "После полной очистки: " << list.asString() << std::endl;
+        std::cout << "РџРѕСЃР»Рµ РїРѕР»РЅРѕР№ РѕС‡РёСЃС‚РєРё: " << list.asString() << std::endl;
 
     }
     catch (const std::exception& error) {
-        std::cerr << "Произошла ошибка: " << error.what() << std::endl;
+        std::cerr << "РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: " << error.what() << std::endl;
         return 1;
     }
 
