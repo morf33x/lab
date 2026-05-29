@@ -85,4 +85,47 @@ namespace CircularListUnitTests
 
         }
     };
+TEST_CLASS(NodeTest)
+{
+public:
+    TEST_METHOD(DefaultConstructor)
+    {
+        Node node;
+
+        Assert::AreEqual(0, node.getValue());
+        Assert::IsNull(node.getNext());
+    }
+
+    TEST_METHOD(ParameterizedConstructor)
+    {
+        Node nextNode(55);
+        Node node(42, &nextNode);
+
+        Assert::AreEqual(42, node.getValue());
+        Assert::IsTrue(&nextNode == node.getNext());
+    }
+    TEST_METHOD(SettersAndGetters)
+    {
+        Node node;
+        Node dummyNode;
+
+        node.setValue(99);
+        node.setNext(&dummyNode);
+
+        Assert::AreEqual(99, node.getValue());
+        Assert::IsTrue(&dummyNode == node.getNext());
+    }
+    TEST_METHOD(LinkingNodes)
+    {
+        Node first(10);
+        Node second(20);
+        Node third(30);
+
+        first.setNext(&second);
+        second.setNext(&third);
+
+        Assert::AreEqual(20, first.getNext()->getValue());
+        Assert::AreEqual(30, first.getNext()->getNext()->getValue());
+    }
+};
 }
